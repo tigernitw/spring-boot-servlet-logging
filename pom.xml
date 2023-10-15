@@ -8,11 +8,38 @@
     <artifactId>servlet-logging-spring-boot-starter</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <licenses>
+        <license>
+            <name>APACHE LICENSE, VERSION 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <scm>
-        <connection>scm:git:git://github.com/piomin/spring-boot-logging.git</connection>
-        <developerConnection>scm:git:git@github.com:piomin/spring-boot-logging.git</developerConnection>
-        <url>https://github.com/piomin/spring-boot-logging</url>
+        <connection>scm:git:git://github.com/tigernitw/spring-boot-servlet-logging</connection>
+        <developerConnection>scm:git:git@github.com/tigernitw/spring-boot-servlet-logging</developerConnection>
+        <url>https://github.com/tigernitw/spring-boot-servlet-logging</url>
     </scm>
+
+<!--    <distributionManagement>-->
+<!--        <snapshotRepository>-->
+<!--            <id>ossrh</id>-->
+<!--            <url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
+<!--        </snapshotRepository>-->
+<!--        <repository>-->
+<!--            <id>ossrh</id>-->
+<!--            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
+<!--        </repository>-->
+<!--    </distributionManagement>-->
+
+    <developers>
+        <developer>
+            <name>Shiva Samadhiya</name>
+            <email>shiva94.nitw@gmail.com</email>
+            <url>https://github.com/tigernitw</url>
+        </developer>
+    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,6 +51,7 @@
         <lombok.version>1.18.26</lombok.version>
         <slf4j.version>2.0.9</slf4j.version>
         <commons-io.version>2.14.0</commons-io.version>
+        <spotless.version>2.35.0</spotless.version>
     </properties>
 
     <dependencies>
@@ -95,6 +123,25 @@
                             <version>${lombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+                <version>${spotless.version}</version>
+                <configuration>
+                    <java>
+                        <includes>
+                            <include>src/main/java/**/*.java</include>
+                            <include>src/test/java/**/*.java</include>
+                        </includes>
+                        <googleJavaFormat>
+                            <version>1.15.0</version>
+                            <style>GOOGLE</style>
+                        </googleJavaFormat>
+                        <removeUnusedImports/>
+                    </java>
                 </configuration>
             </plugin>
 
