@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.github.tigernitw.logging.util;
+package io.github.tigernitw.logging.util;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

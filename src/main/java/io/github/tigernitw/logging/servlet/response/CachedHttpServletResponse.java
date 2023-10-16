@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.github.tigernitw.logging.servlet.response;
+package io.github.tigernitw.logging.servlet.response;
 
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;

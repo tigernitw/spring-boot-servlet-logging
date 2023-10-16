@@ -14,11 +14,12 @@
  *  limitations under the License.
  */
 
-package com.github.tigernitw.logging.config;
+package io.github.tigernitw.logging.config;
 
-import com.github.tigernitw.logging.filter.LoggingFilter;
+import io.github.tigernitw.logging.filter.LoggingFilter;
 import java.util.ArrayList;
 import java.util.List;
+
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -14,12 +14,12 @@
  *  limitations under the License.
  */
 
-package com.github.tigernitw.logging.filter;
+package io.github.tigernitw.logging.filter;
 
-import com.github.tigernitw.logging.config.LoggingAutoConfig;
-import com.github.tigernitw.logging.servlet.request.CachedHttpServletRequest;
-import com.github.tigernitw.logging.servlet.response.CachedHttpServletResponse;
-import com.github.tigernitw.logging.util.MDCUtil;
+import io.github.tigernitw.logging.config.LoggingAutoConfig;
+import io.github.tigernitw.logging.servlet.request.CachedHttpServletRequest;
+import io.github.tigernitw.logging.servlet.response.CachedHttpServletResponse;
+import io.github.tigernitw.logging.util.MDCUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

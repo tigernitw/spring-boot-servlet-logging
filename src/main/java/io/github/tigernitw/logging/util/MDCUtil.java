@@ -14,9 +14,9 @@
  *  limitations under the License.
  */
 
-package com.github.tigernitw.logging.util;
+package io.github.tigernitw.logging.util;
 
-import com.github.tigernitw.logging.servlet.response.CachedHttpServletResponse;
+import io.github.tigernitw.logging.servlet.response.CachedHttpServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.UUID;
 import lombok.AccessLevel;
