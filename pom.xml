@@ -7,6 +7,19 @@
     <groupId>io.github.tigernitw</groupId>
     <artifactId>servlet-logging-spring-boot-starter</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>servlet-logging-spring-boot-starter</name>
+    <description>Spring boot library to customise servlet logs based on path</description>
+    <url>https://github.com/tigernitw/spring-boot-servlet-logging</url>
+
+    <developers>
+        <developer>
+            <name>Shiva Samadhiya</name>
+            <email>shiva94.nitw@gmail.com</email>
+            <url>https://github.com/tigernitw</url>
+        </developer>
+    </developers>
 
     <licenses>
         <license>
@@ -32,14 +45,6 @@
 <!--            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
 <!--        </repository>-->
 <!--    </distributionManagement>-->
-
-    <developers>
-        <developer>
-            <name>Shiva Samadhiya</name>
-            <email>shiva94.nitw@gmail.com</email>
-            <url>https://github.com/tigernitw</url>
-        </developer>
-    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
