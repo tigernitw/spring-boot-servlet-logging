@@ -23,11 +23,17 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.slf4j.MDC;
 
+/** {@link MDCUtil} utility class to work with MDC thread local. */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MDCUtil {
 
   private static final String X_REQUEST_ID = "x-request-id";
 
+  /**
+   * Method to add unique header for all servlet requests.
+   *
+   * @param request as argument for fetching header request.
+   */
   public static void addRequestHeaders(HttpServletRequest request) {
     String requestId = request.getHeader(X_REQUEST_ID);
     if (StringUtil.isStringNullOrEmpty(requestId)) {
@@ -36,12 +42,19 @@ public class MDCUtil {
     MDC.put(X_REQUEST_ID, requestId);
   }
 
+  /**
+   * Method to add unique header for all servlet responses.
+   *
+   * @param request as argument for fetching header in request.
+   * @param cachedHttpServletResponse as argument for setting header in response.
+   */
   public static void addResponseHeaders(
       HttpServletRequest request, CachedHttpServletResponse cachedHttpServletResponse) {
     String requestId = request.getHeader(X_REQUEST_ID);
     cachedHttpServletResponse.setHeader(X_REQUEST_ID, requestId);
   }
 
+  /** Method to clear all MDC headers. */
   public static void clearHeaders() {
     MDC.clear();
   }

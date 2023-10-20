@@ -19,7 +19,6 @@ package io.github.tigernitw.logging.config;
 import io.github.tigernitw.logging.filter.LoggingFilter;
 import java.util.ArrayList;
 import java.util.List;
-
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -27,6 +26,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.annotation.Validated;
 
+/**
+ * {@link LoggingAutoConfig} Logging configuration class to load auto configuration while service
+ * comes up.
+ */
 @Slf4j
 @Data
 @Validated

@@ -19,9 +19,16 @@ package io.github.tigernitw.logging.util;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+/** {@link StringUtil} utility class to work with Strings. */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class StringUtil {
 
+  /**
+   * Method to check if string is null or empty.
+   *
+   * @param str string as argument
+   * @return true if string is null/empty else false
+   */
   public static boolean isStringNullOrEmpty(final String str) {
     return str == null || str.trim().isEmpty();
   }

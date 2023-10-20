@@ -109,6 +109,7 @@
     <build>
         <plugins>
 
+            <!-- maven default compiler plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -126,6 +127,7 @@
                 </configuration>
             </plugin>
 
+            <!--  maven spotless plugin to ensure code format & styling using google format.    -->
             <plugin>
                 <groupId>com.diffplug.spotless</groupId>
                 <artifactId>spotless-maven-plugin</artifactId>
@@ -143,6 +145,36 @@
                         <removeUnusedImports/>
                     </java>
                 </configuration>
+            </plugin>
+
+            <!--  maven source plugin to generate code sources jar.    -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--  maven source plugin to generate code javadoc jar.    -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>

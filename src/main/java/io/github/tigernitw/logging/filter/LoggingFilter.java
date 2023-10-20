@@ -35,6 +35,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+/** Logging Filter class to log request &amp; response for each servlet. */
 @Slf4j
 @Component()
 @EqualsAndHashCode(callSuper = true)
