@@ -45,17 +45,25 @@ public class LoggingAutoConfig {
 
   private ResponseConfig responseConfig;
 
+  /** {@link RequestConfig} class to load request configuration. */
   @Data
   public static class RequestConfig {
     private boolean enabled = false;
     private List<String> headers = new ArrayList<String>();
   }
 
+  /** {@link ResponseConfig} class to load response configuration. */
   @Data
   public static class ResponseConfig {
     private boolean enabled = false;
   }
 
+  /**
+   * {@link LoggingFilter} class to load logging filter.
+   *
+   * @param loggingAutoConfig see {@link LoggingAutoConfig}.
+   * @return see {@link LoggingFilter}
+   */
   @Bean
   public LoggingFilter loggingFilter(LoggingAutoConfig loggingAutoConfig) {
     return new LoggingFilter(loggingAutoConfig);

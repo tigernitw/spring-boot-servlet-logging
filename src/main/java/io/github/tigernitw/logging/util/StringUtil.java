@@ -27,7 +27,7 @@ public class StringUtil {
    * Method to check if string is null or empty.
    *
    * @param str string as argument
-   * @return true if string is null/empty else false
+   * @return {@code true} if string is null/empty else false
    */
   public static boolean isStringNullOrEmpty(final String str) {
     return str == null || str.trim().isEmpty();

@@ -22,12 +22,18 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+/** OutputStream interface implementation to read servlet response */
 public class CachedServletOutputStream extends ServletOutputStream {
 
   private final OutputStream cachedOutputStream;
   private final ByteArrayOutputStream copyStream;
 
-  public CachedServletOutputStream(OutputStream outputStream) throws IOException {
+  /**
+   * Constructs a new {@link CachedServletOutputStream}.
+   *
+   * @param outputStream see {@link OutputStream}.
+   */
+  public CachedServletOutputStream(OutputStream outputStream) {
     this.cachedOutputStream = outputStream;
     this.copyStream = new ByteArrayOutputStream(1024);
   }
@@ -48,6 +54,11 @@ public class CachedServletOutputStream extends ServletOutputStream {
     copyStream.write(b);
   }
 
+  /**
+   * Method to convert copied response stream into byte array.
+   *
+   * @return see {@link Byte[]}
+   */
   public byte[] getCopy() {
     return copyStream.toByteArray();
   }

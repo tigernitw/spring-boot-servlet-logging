@@ -25,10 +25,17 @@ import java.util.HashMap;
 import java.util.Map;
 import org.springframework.util.StreamUtils;
 
+/** Request servlet wrapper to read cached servlet request */
 public class CachedHttpServletRequest extends HttpServletRequestWrapper {
 
   private final byte[] cachedPayload;
 
+  /**
+   * Constructs a new {@link CachedHttpServletRequest}.
+   *
+   * @param request see {@link #request}.
+   * @throws IOException If an input or output exception occurred
+   */
   public CachedHttpServletRequest(HttpServletRequest request) throws IOException {
     super(request);
     InputStream requestInputStream = request.getInputStream();
@@ -46,6 +53,11 @@ public class CachedHttpServletRequest extends HttpServletRequestWrapper {
     return new BufferedReader(new InputStreamReader(byteArrayInputStream));
   }
 
+  /**
+   * Method to fetch all request servlet headers.
+   *
+   * @return see {@link Map}
+   */
   public Map<String, String> getAllHeaders() {
     final Map<String, String> headers = new HashMap<>();
     Collections.list(getHeaderNames()).forEach(key -> headers.put(key, getHeader(key)));

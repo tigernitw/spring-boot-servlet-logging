@@ -25,12 +25,18 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+/** Response servlet wrapper to read cached servlet response */
 public class CachedHttpServletResponse extends HttpServletResponseWrapper {
 
   private CachedServletOutputStream cachedServletOutputStream;
   private PrintWriter writer;
   private ServletOutputStream outputStream;
 
+  /**
+   * Constructs a new {@link CachedHttpServletResponse}.
+   *
+   * @param response see {@link #response}.
+   */
   public CachedHttpServletResponse(HttpServletResponse response) {
     super(response);
   }
@@ -74,6 +80,11 @@ public class CachedHttpServletResponse extends HttpServletResponseWrapper {
     }
   }
 
+  /**
+   * Method to fetch copied response stream into byte array.
+   *
+   * @return see {@link Byte[]}
+   */
   public byte[] getContent() {
     if (cachedServletOutputStream != null) {
       return cachedServletOutputStream.getCopy();
@@ -82,6 +93,11 @@ public class CachedHttpServletResponse extends HttpServletResponseWrapper {
     }
   }
 
+  /**
+   * Method to fetch all response servlet headers.
+   *
+   * @return see {@link Map}
+   */
   public Map<String, String> getAllHeaders() {
     final Map<String, String> headers = new HashMap<>();
     getHeaderNames().forEach(key -> headers.put(key, getHeader(key)));

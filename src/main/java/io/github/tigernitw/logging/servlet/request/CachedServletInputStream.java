@@ -23,11 +23,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import lombok.extern.slf4j.Slf4j;
 
+/** InputStream interface implementation to read servlet request */
 @Slf4j
 public class CachedServletInputStream extends ServletInputStream {
 
   private final InputStream cachedInputStream;
 
+  /**
+   * Constructs a new {@link CachedServletInputStream}.
+   *
+   * @param cachedBody converted request servlet into byte array.
+   */
   public CachedServletInputStream(byte[] cachedBody) {
     this.cachedInputStream = new ByteArrayInputStream(cachedBody);
   }

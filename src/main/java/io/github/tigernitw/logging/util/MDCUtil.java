@@ -16,14 +16,16 @@
 
 package io.github.tigernitw.logging.util;
 
-import io.github.tigernitw.logging.servlet.response.CachedHttpServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.UUID;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 
 /** {@link MDCUtil} utility class to work with MDC thread local. */
+@Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MDCUtil {
 
@@ -45,13 +47,11 @@ public class MDCUtil {
   /**
    * Method to add unique header for all servlet responses.
    *
-   * @param request as argument for fetching header in request.
-   * @param cachedHttpServletResponse as argument for setting header in response.
+   * @param response as argument for setting header in response.
    */
-  public static void addResponseHeaders(
-      HttpServletRequest request, CachedHttpServletResponse cachedHttpServletResponse) {
-    String requestId = request.getHeader(X_REQUEST_ID);
-    cachedHttpServletResponse.setHeader(X_REQUEST_ID, requestId);
+  public static void addResponseHeaders(HttpServletResponse response) {
+    String requestId = MDC.get(X_REQUEST_ID);
+    response.setHeader(X_REQUEST_ID, requestId);
   }
 
   /** Method to clear all MDC headers. */

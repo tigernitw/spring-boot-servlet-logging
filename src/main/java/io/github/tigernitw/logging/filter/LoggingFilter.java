@@ -44,6 +44,11 @@ public class LoggingFilter extends OncePerRequestFilter {
 
   private final LoggingAutoConfig loggingAutoConfig;
 
+  /**
+   * Constructs a new {@link LoggingFilter}.
+   *
+   * @param loggingAutoConfig see {@link LoggingAutoConfig}.
+   */
   @Autowired
   public LoggingFilter(LoggingAutoConfig loggingAutoConfig) {
     this.loggingAutoConfig = loggingAutoConfig;
@@ -63,9 +68,10 @@ public class LoggingFilter extends OncePerRequestFilter {
       } else {
         CachedHttpServletRequest cachedHttpServletRequest = new CachedHttpServletRequest(request);
         logRequest(cachedHttpServletRequest);
+
+        MDCUtil.addResponseHeaders(response);
         final CachedHttpServletResponse cachedHttpServletResponse =
             new CachedHttpServletResponse(response);
-        MDCUtil.addResponseHeaders(request, cachedHttpServletResponse);
         try {
           filterChain.doFilter(cachedHttpServletRequest, cachedHttpServletResponse);
           logResponse(cachedHttpServletResponse);
