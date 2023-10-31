@@ -66,6 +66,7 @@ public class LoggingAutoConfig {
    */
   @Bean
   public LoggingFilter loggingFilter(LoggingAutoConfig loggingAutoConfig) {
+    log.info("dd");
     return new LoggingFilter(loggingAutoConfig);
   }
 }
